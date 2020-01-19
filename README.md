@@ -1,12 +1,44 @@
 # SQLreview
 
+``` SQL
+show databases 
+
+use database
+
+show tables
+show tables from database
+
+desc table 
+-- show data scehma infomation
+```
+
 ## create table 
 ```SQL
 create table newtable as 
 (
 select * from 
 )
+
+create table newtable {
+   c1 type,
+   c2 type,
+   ...
+}
 ```
+## basic select 
+``` SQL
+select 100;
+select 'suyu' as "handsome guy";
+select 100%99 as result;
+select version(); --版本
+-- select constant, function and expression 
+
+-- distinct
+
+-- + 
+select last_name 
+```
+
 ## join
 
 * left join
