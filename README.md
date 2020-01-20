@@ -35,8 +35,115 @@ select version(); --版本
 
 -- distinct
 
--- + 
-select last_name 
+/*
++
+only used as operand
+1. 100 + 2 = 102
+2. '100' + 2 = 102 -- try to change str to number
+3. 'suyu' + 6 = 6 -- if fail then as 0
+4. null + 6 = 0 -- as long as there is null, result is 0
+*/
+select last_name + first_name as name from table; -- 0
+select concat(lasname + firstname) as name from table;
+
+```
+## condition select
+``` SQL
+select * from table
+where
+-- operand 
+< = > != <>
+-- logic
+and or not
+-- vague
+like
+/*
+like '%a%' : include a 
+通配符 
+% 任意多个字符
+_ 任意一个字符
+
+转义 
+\
+任意一个字符 c escape 'c'
+
+-- whose second str is _
+like '_\_%'; 
+like '_$_%' escape '$';
+*/
+in
+where job_id in ('a', 'b', 'c') --type of elements in list should be same
+
+between and -- [] 包含临界值； 前后顺序有意义
+is null
+<=> -- 安全等于 既可以判断null也可以判断普通数值
+
+```
+
+## sorting select 
+```SQL
+select * from table where 
+order by filed1 desc, filed2 asc;
+
+-- 按别名排序
+select salary*12 as anualSalary from table
+order by anualSalary desc;
+```
+
+
+## excution order
+1. from 定位到表
+2. where 筛选条件
+3. select
+4. order by 
+
+## common functions
+``` SQL
+--1. 单行函数
+--字符函数
+concat(c1, ' ', c2)
+length --汉字占三个字节
+upper, lower
+
+substr(str, pos) --索引从1开始
+substr(str, pos, len)
+
+instr(str1, str2) -- 返回str2在str1中第一次出现的位置 无则返回0
+
+trim() -- remove space at end and begin
+trim('s' from str) -- remove s at end and begin
+
+lpad(c1, length, 's') -- 左填充
+rlad() -- 右填充
+
+--数学函数
+round(double, length)
+ceil() -- min int >=
+floor()
+truncate(double, length)
+mod() -- a-a/b*b
+
+--日期函数
+now()
+curdate()
+curtime()
+year()
+month()
+monthname() -- 
+
+str_to_date
+| %Y | 4位年份    |
+| %y | 2位年份    |
+| %m | 月份 01 02 |
+| %c | 月份 1 2   |
+| %d | 日         |
+| %H | 24小时     |
+| %h | 12小时     |
+| %i | 分钟       |
+| %s | 秒         |
+
+--2. 聚合函数
+
 ```
 
 ## join
