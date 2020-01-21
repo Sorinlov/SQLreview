@@ -131,7 +131,11 @@ year()
 month()
 monthname() -- 
 
-str_to_date
+str_to_date()
+data_format('2018/6/5', '%Y年%m月%d日')
+```
+|format| date    |
+|----|------------|
 | %Y | 4位年份    |
 | %y | 2位年份    |
 | %m | 月份 01 02 |
@@ -142,19 +146,29 @@ str_to_date
 | %i | 分钟       |
 | %s | 秒         |
 
---2. 聚合函数
+-- 流程控制函数
+``` SQL
+if (p, 1, 2)
+
+case 
+when 表达式 then 表达式 
+when 表达式 then 表达式 
+else 表达式 
+end；
+```
+
+-- 2. 聚合函数
+``` SQL
 
 ```
-| %Y | 4位年份    |
-|----|------------|
-| %y | 2位年份    |
-| %m | 月份 01 02 |
-| %c | 月份 1 2   |
-| %d | 日         |
-| %H | 24小时     |
-| %h | 12小时     |
-| %i | 分钟       |
-| %s | 秒         |
+
+```SQL
+version()
+database()
+user()
+
+```
+
 
 ## join
 
