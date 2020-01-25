@@ -159,6 +159,20 @@ end；
 
 -- 2. 聚合函数
 ``` SQL
+sum()
+avg()
+min()
+max()
+count() -- 计算非空数目
+count(*) -- 一行中只要一个field不为null就+1
+select count(1) from employee
+-- 效率： MYISAM引擎下 count(*)效率更高；INNODB引擎下 count(*) = count(1) > count(filed)
+
+-- 聚合函数不一定和分组group by一起使用
+-- 支持类型：sum,avg仅支持数值型；min max支持所有能排序类型 包括str
+-- sum(str)  0 无意义 sum(date) wrong result 无意义
+-- 分组函数都忽略null
+
 
 ```
 
@@ -168,6 +182,19 @@ database()
 user()
 
 ```
+
+## group select
+
+``` SQL
+group by 
+having 
+order by 
+-- group by后可以放表达式
+-- having 用做分组后的筛选
+-- 分组函数做筛选一定放在having；能放在where就放在where
+-- group by, having, order by 后都支持别名
+```
+
 
 
 ## join
